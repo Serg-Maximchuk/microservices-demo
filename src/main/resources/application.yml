@@ -2,5 +2,17 @@ spring:
   cloud:
     config:
       server:
+#        native:
+#          searchLocations: file://${user.home}/MicroService/centralProperties/
         git:
           uri: https://github.com/Serg-Maximchuk/microservices-demo
+
+  security:
+    user:
+      name: user
+      password: pass
+
+server:
+  port: 9090
+
+SPRING_PROFILES_ACTIVE: native
