@@ -9,6 +9,6 @@ Before we start, make sure you've already done this:
 
 ## Config service
 Config service lives in directory `config`.
-To start with, execute the below command to create the base Docker image:
+To start with, execute the below command in config directory to create the base Docker image:
 
 `docker build --tag=alpine-jdk:base --rm=true .`
