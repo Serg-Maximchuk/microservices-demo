@@ -11,4 +11,9 @@ Before we start, make sure you've already done this:
 Config service lives in directory `config`.
 To start with, execute the below command in config directory to create the base Docker image:
 
-`docker build --tag=alpine-jdk:base --rm=true .`
+`docker build --tag=config-server:latest --rm=true .`
+
+Then run it:
+
+`docker run --name=config-server --publish=9090:9090 config-server:latest`
+
