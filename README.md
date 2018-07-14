@@ -1,6 +1,9 @@
 # microservices-demo
 Microservices demo
 
+Each service have it's own docker file and depends on a jar file of the service.
+Create it by running `gradle bootJar` command for each service.
+
 Before we start, make sure you've already done this:
 
 `sudo usermod -a -G docker $USER`
