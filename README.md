@@ -24,3 +24,10 @@ If you receive 404 error with this: "Cannot clone or checkout repository", fix y
 
 https://superuser.com/questions/1130898/no-internet-connection-inside-docker-containers/1274161#1274161
 
+## Service discovery
+
+Similar thing needs to be done for eureka service discovery in folder `discovery`.
+
+`docker build --tag=service-discovery:latest --rm=true .`
+
+`docker run --name=discovery-service --publish=9091:9091 service-discovery:latest`
