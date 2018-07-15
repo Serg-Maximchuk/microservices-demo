@@ -14,11 +14,11 @@ Before we start, make sure you've already done this:
 Config service lives in directory `config`.
 To start with, execute the below command in config directory to create the base Docker image:
 
-`docker build --tag=config-server:latest --rm=true .`
+`docker build -t config-server:latest .`
 
 Then run it:
 
-`docker run --name=config-server --publish=9090:9090 config-server:latest`
+`docker run --name config-server -p 9090:9090 config-server:latest`
 
 If you receive 404 error with this: "Cannot clone or checkout repository", fix your docker networking as described here:
 
@@ -28,6 +28,6 @@ https://superuser.com/questions/1130898/no-internet-connection-inside-docker-con
 
 Similar thing needs to be done for eureka service discovery in folder `discovery`.
 
-`docker build --tag=service-discovery:latest --rm=true .`
+`docker build -t service-discovery:latest .`
 
-`docker run --name=discovery-service --publish=9091:9091 service-discovery:latest`
+`docker run --name discovery-service -p 9091:9091 service-discovery:latest`
