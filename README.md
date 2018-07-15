@@ -31,3 +31,29 @@ Similar thing needs to be done for eureka service discovery in folder `discovery
 `docker build -t service-discovery:latest .`
 
 `docker run --name discovery-service -p 9091:9091 service-discovery:latest`
+
+## User service
+
+Similar thing, in folder `user`
+
+`docker build -t user:latest .`
+
+`docker run --name user-service -p 8080:8080 user:latest`
+
+## User dashboard
+
+Similar thing, in folder `user-dashboard`
+
+`docker build -t user-dashboard:latest .`
+
+`docker run --name user-dashboard-service -p 8080:8080 user-dashboard:latest`
+
+## Gateway service
+
+Similar thing, in folder `gateway`
+
+`docker build -t gateway:latest .`
+
+`docker run --name gateway-service -p 8080:8080 gateway:latest`
+
+
