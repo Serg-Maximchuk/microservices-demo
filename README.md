@@ -54,6 +54,6 @@ Similar thing, in folder `gateway`
 
 `docker build -t gateway:latest .`
 
-`docker run --name gateway-service -p 8080:8080 gateway:latest`
+`docker run --name gateway-service -p 8084:8084 gateway:latest`
 
 
