@@ -28,9 +28,15 @@ Docker compose is used for this. Install it if not yet:
 `sudo pip install docker-compose`
 
 And from project root folder: `docker-compose up --build`.
-Check these URLs: 
-`http://localhost:9090/config/default` to check configuration
+
+Check these URLs:
+
+`http://localhost:9090/config/default` to check configuratio
+
 `http://localhost:9091/` is for service discovery
-`http://localhost:8081/dashboard/feign/peers` is user dashboard,
-`http://localhost:8084/usersUI/dashboard/feign/1` is a gateway for user dashboard,
-`http://localhost:8080/users/1` is direct access for user service.
+
+`http://localhost:8081/dashboard/feign/peers` is user dashboard
+
+`http://localhost:8084/usersUI/dashboard/feign/1` is a gateway for user dashboard
+
+`http://localhost:8080/users/1` is direct access for user service
