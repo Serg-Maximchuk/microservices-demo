@@ -31,7 +31,7 @@ And from project root folder: `docker-compose up --build`.
 
 Check these URLs:
 
-`http://localhost:9090/config/default` to check configuratio
+`http://localhost:9090/config/default` for configuration service
 
 `http://localhost:9091/` is for service discovery
 
