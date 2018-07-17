@@ -1,0 +1,89 @@
+version: '2.2'
+services:
+    config-server:
+        container_name: config-server
+        build: ./config
+        image: config-server:latest
+        expose:
+            - 9090
+        ports:
+            - 9090:9090
+        networks:
+            - emp-network
+        volumes:
+            - /tmp:/tmp
+    discovery-service:
+        container_name: discovery-service
+        build: ./discovery
+        image: discovery-service:latest
+        expose:
+            - 9091
+        ports:
+            - 9091:9091
+        networks:
+            - emp-network
+        volumes:
+            - /tmp:/tmp
+    user-dashboard:
+        container_name: user-dashboard
+        build: ./user-dashboard
+        image: user-dashboard:latest
+        entrypoint: /wait-for.sh
+        expose:
+            - 8081
+        ports:
+            - 8081:8081
+        networks:
+            - emp-network
+        links:
+            - config-server:config-server
+            - discovery-service:discovery-service
+        depends_on:
+            - config-server
+            - discovery-service
+        logging:
+            driver: json-file
+        volumes:
+            - /tmp:/tmp
+    user:
+        container_name: user
+        build: ./user
+        image: user:latest
+        entrypoint: /wait-for.sh
+        expose:
+            - 8080
+        ports:
+            - 8080:8080
+        networks:
+            - emp-network
+        links:
+            - config-server:config-server
+            - discovery-service:discovery-service
+        depends_on:
+            - config-server
+            - discovery-service
+        logging:
+            driver: json-file
+        volumes:
+            - /tmp:/tmp
+    gateway:
+        container_name: gateway
+        build: ./gateway
+        image: gateway:latest
+        expose:
+            - 8084
+        ports:
+            - 8084:8084
+        networks:
+            - emp-network
+        links:
+            - discovery-service:discovery-service
+        depends_on:
+            - discovery-service
+        logging:
+            driver: json-file
+        volumes:
+            - /tmp:/tmp
+networks:
+    emp-network:
+        driver: bridge
